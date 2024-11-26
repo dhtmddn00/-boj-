@@ -5,6 +5,8 @@ public class Main {
     public static int[] result;
     public static int size;
 
+    public static int flag=0;
+
     public static void main(String[] args) throws IOException {
         BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
 
@@ -23,12 +25,14 @@ public class Main {
     }
 
     public static void combination(Stack<Integer> arr, boolean[] visited) {
+        if (flag==1) return;
         if (arr.size() == size) {
             if (isResult(arr, result)) {
                 for (int i = 0; i < size; i++) {
                     System.out.print(arr.get(i) + " ");
                 }
                 System.out.println();
+                flag=1;
                 return;
             }
             return;
